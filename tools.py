@@ -1,4 +1,6 @@
-import numpy as np
+iimport matplotlib
+import matplotlib.pyplot as plt
+mport numpy as np
 
 def logistic_function(t, N_0, K, r):
     N_t = N_0*np.exp(r*t)/(1+(N_0/K)*(np.exp(r*t)-1))
@@ -28,3 +30,17 @@ def two_hubbert_curve_asy(t, K_1, r_max_1, r_min_1, t_peak_1, k_1, K_2, r_max_2,
 def wkh_function(t, alpha1, beta1, alpha2, beta2):
     y = np.exp(-(t-alpha1)/beta1) / (beta1*(1 + np.exp(-(t-alpha1)/beta1))**2 ) + np.exp(-(t-alpha2)/beta2) / (beta2*(1 + np.exp(-(t-alpha2)/beta2))**2 )
     return y
+
+class Plot(object):
+    def __init__(self):
+        self.figure = plt.figure(figsize=(16,9))
+        
+    def title(self, title):
+        self.title = plt.title(title)
+        
+    def addplot(self, xvalues, yvalues):
+        self.x = xvalues
+        self.y = yvalues
+        plt.plot(self.x, self.y)
+        plt.legend()
+    
