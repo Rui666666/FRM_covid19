@@ -1,6 +1,6 @@
-iimport matplotlib
+import matplotlib
 import matplotlib.pyplot as plt
-mport numpy as np
+import numpy as np
 
 def logistic_function(t, N_0, K, r):
     N_t = N_0*np.exp(r*t)/(1+(N_0/K)*(np.exp(r*t)-1))
